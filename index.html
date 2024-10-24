@@ -33,8 +33,11 @@
             <span class="close" onclick="closeEventForm()">&times;</span>
             <form id="eventForm" onsubmit="addEvent(event)">
                 <input type="text" onclick="checkcoodinate()" id="eventName" placeholder="Nome Evento" required>
+                data inizio
                 <input type="date" onclick="checkcoodinate()" id="eventStart" placeholder="Inizio Evento" required>
+                data fine
                 <input type="date" onclick="checkcoodinate()" id="eventEnd" placeholder="Fine Evento" required>
+                categoria
                 <select onclick="checkcoodinate()" id="eventCategory">
                   <option value="evento_pubblico">Evento Pubblico</option>
                   <option value="festa_privata">Festa Privata</option>
@@ -56,7 +59,9 @@
         <div id="popupfilterevent" class="popup-content">
             <span class="close" onclick="closeFilterForm()">&times;</span>
             <form id="filterForm" onsubmit="filterEvents(event)">
+                data evento
                 <input type="date" id="filterData" placeholder="Data Evento">
+                categoria
                 <select id="filterCategory">
                   <option value=""></option>
                   <option value="evento_pubblico">Evento Pubblico</option>
