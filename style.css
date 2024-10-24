@@ -1,0 +1,272 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2d2e2e;
+    overflow-y: hidden;
+}
+
+h1 {
+    margin: 20px;
+    font-size: 2em;
+}
+
+#map {
+  position: absolute;
+  height: 100%;
+  width:  100%;
+  margin: 1px;
+  max-height: 100vh; 
+  box-sizing: border-box;
+}
+
+#addEventButton {
+    position: fixed;
+    z-index: 999;
+    bottom: 5%;
+    right: 3%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 2em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#addEventButton:hover {
+    background-color: #0056b3;
+}
+
+#filterButton {
+    position: fixed;
+    z-index: 999;
+    bottom: 5%;
+    left: 3%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 2em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#filterButton:hover {
+    background-color: #0056b3;
+}
+
+#showmap {
+    position: fixed;
+    bottom: 3%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    width: 150px;
+    height: 50px;
+    font-size: 2em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#showmap:hover {
+    background-color: #0056b3;
+}
+
+.ricerca {
+    position: fixed;
+    top: 5%;
+    text-align: center;
+    color: black;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    border: 5px solid #007bff;
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    width: 250px;
+    height: 50px;
+    font-size: 2em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-button {
+    display: none;
+    z-index: 998;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    width: 150px;
+    height: 50px;
+    font-size: 2em;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Popup form styling */
+.popup {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    margin-top: 76px;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#eventForm input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+#eventForm select {
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+#eventForm button {
+    width: 95%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#eventForm button:hover {
+    background-color: #0056b3;
+}
+
+#filterForm input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+#filterForm select {
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+#filterForm button {
+    width: 95%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#filterForm button:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+input[type="range"] {
+  height: 5px;
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+#eventList {
+  height: 99%;
+  display: none;
+  overflow-y: scroll;
+  padding: 10px;
+  margin: 20px 0;
+  margin-top: 55px;
+  max-height: 80vh; 
+  box-sizing: border-box;
+}
+
+.event-item {
+  padding: 10px;
+  background-color: #fefefe;
+  border-radius: 15px;
+  margin: 10px;
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box; /* Assicura che padding e bordi siano inclusi nell'altezza */
+}
