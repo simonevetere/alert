@@ -57,7 +57,7 @@ function getCoordinates(custom = "") {
 
 function getEvents() {
     // Replace with your actual API endpoint and authentication (if needed)
-    var url = 'http://127.0.0.1:5000/select';
+    var url = 'https://db.casasmart.me/select';
     
     let filterData = document.getElementById('filterData').value;
     let filterCategory = document.getElementById('filterCategory').value;
@@ -195,7 +195,7 @@ function addEvent() {
     // Crea un nuovo oggetto evento
     const coordinate = `'${lat}, ${lng}'`;
     // Invia una richiesta POST al tuo endpoint per aggiungere l'evento
-    var url = 'http://127.0.0.1:5000/insert';
+    var url = 'https://db.casasmart.me/insert';
     var data = {
         'nome': eventName,
         'coordinate': eventCoordinates,
