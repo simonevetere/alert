@@ -1,4 +1,4 @@
-map = L.map('map').setView([44.700724, 8.035779], 13);
+map = L.map('map').setView([41.8992, 12.5450], 13);
 
 var old_zoom = 13;
 
