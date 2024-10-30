@@ -20,12 +20,25 @@ function onSuccess(position) {
 
   map.setView([latitude, longitude], 13);
 
+  var circle = L.circleMarker([latitude, longitude], {
+        radius: 20,
+        color: "blue",
+        fillColor: "blue",
+        fillOpacity: 0.5
+  }).addTo(map);
+
+  circle.bindPopup(
+        `<b>you</b>`
+  );
+
+
   // Qui puoi utilizzare le coordinate per fare ciò che desideri,
   // ad esempio, visualizzarle su una mappa o inviarle a un server
 }
 
 function onError(error) {
   console.error('Errore durante il recupero della posizione:', error);
+  alert('Errore durante il recupero della posizione: accendere il GPS');
 }
 
 if (navigator.geolocation) {
