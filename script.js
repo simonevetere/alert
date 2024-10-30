@@ -102,19 +102,21 @@ function getEvents() {
     // Replace with your actual API endpoint and authentication (if needed)
     var url = 'https://db.casasmart.me/select';
     
-    let filterData = document.getElementById('filterData').value;
+    let filterDataInizio = document.getElementById('filterData').value;
+    let filterDataFine = document.getElementById('filterData').value;
     let filterCategory = document.getElementById('filterCategory').value;
     let filterName = document.getElementById('filterName').value;
 
     if(filterData == ""){
-        filterData = today;
+        filterDataInizio = today;
+        filterDataFine = today;
     }
 
     var data = {
-        'nome': filterName,
+        'nome': filterName.trim(),
         'categoria': filterCategory,
-        'inizio': filterData,
-        'fine': filterData
+        'inizio': filterDataInizio,
+        'fine': filterDataFine
     };
 
 
@@ -173,7 +175,7 @@ function getEvents() {
                     );
 
                     // Create event list item
-                    var eventItem = "";
+                    document.getElementById('eventList').innerHTML = "";
                     eventItem = document.createElement('div');
                     eventItem.className = 'event-item';
                     eventItem.innerHTML = `<b>${event.nome}</b><br> Inizio: ${event.inizio}<br> Fine: ${event.fine}<br> Categoria: ${event.categoria}`;
@@ -238,7 +240,7 @@ function addEvent() {
     // Invia una richiesta POST al tuo endpoint per aggiungere l'evento
     var url = 'https://db.casasmart.me/insert';
     var data = {
-        'nome': eventName,
+        'nome': eventName.trim(),
         'coordinate': eventCoordinates,
         'categoria': eventCategory,
         'inizio': eventStart,
