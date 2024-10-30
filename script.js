@@ -1,10 +1,40 @@
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = mm + '/' + dd + '/' + yyyy;
+
 map = L.map('map').setView([41.8992, 12.5450], 13);
 
-var old_zoom = 13;
-
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map)
+
+function onSuccess(position) {
+  const latitude  = position.coords.latitude;
+  const longitude = position.coords.longitude;
+
+  console.log(`Latitude: ${latitude}`);
+  console.log(`Longitude: ${longitude}`);
+
+  map.setView([latitude, longitude], 13);
+
+  // Qui puoi utilizzare le coordinate per fare ciò che desideri,
+  // ad esempio, visualizzarle su una mappa o inviarle a un server
+}
+
+function onError(error) {
+  console.error('Errore durante il recupero della posizione:', error);
+}
+
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(onSuccess, onError);
+} else {
+  alert('La geolocalizzazione non è supportata dal tuo browser.');
+}
+
+var old_zoom = 13;
 
 function getCoordinates(custom = "") {
     var city = document.getElementById('cityInput').value;
@@ -62,6 +92,10 @@ function getEvents() {
     let filterData = document.getElementById('filterData').value;
     let filterCategory = document.getElementById('filterCategory').value;
     let filterName = document.getElementById('filterName').value;
+
+    if(filterData == ""){
+        filterData = today;
+    }
 
     var data = {
         'nome': filterName,
@@ -126,7 +160,8 @@ function getEvents() {
                     );
 
                     // Create event list item
-                    var eventItem = document.createElement('div');
+                    var eventItem = "";
+                    eventItem = document.createElement('div');
                     eventItem.className = 'event-item';
                     eventItem.innerHTML = `<b>${event.nome}</b><br> Inizio: ${event.inizio}<br> Fine: ${event.fine}<br> Categoria: ${event.categoria}`;
                     eventList.appendChild(eventItem);
@@ -165,13 +200,6 @@ function addEvent() {
     const lng = parseFloat(eventCoordinates[1]);
 
     let datediff = Math.floor((Date.parse(eventEnd) - Date.parse(eventStart)) / (1000*60*60*24))
-    
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
-
-    today = mm + '/' + dd + '/' + yyyy;
     
     let datedifftoday = Math.floor((Date.parse(eventStart) - Date.parse(today)) / (1000*60*60*24))
 
