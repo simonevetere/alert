@@ -309,10 +309,7 @@ function showmap(){
     document.getElementById('myRange').style.display = 'none';
     document.getElementById('rangeLabel').style.display = 'none';
     document.getElementById('eventFormPopup').style.background = 'transparent';
-    document.getElementById('confermaposizione').style.background = 'transparent';
     document.getElementById('popupinsevent').style.background = 'transparent';
-    document.getElementById('confermaposizione').style.display = 'block';
-    document.getElementById('confermaposizione').style.background = '';
     document.getElementById('annullaposizione').style.display = 'block';
     document.getElementById('annullaposizione').style.background = '';
     document.getElementById('scegliposizione').style.display = 'block';
@@ -331,8 +328,6 @@ function resetcss(){
     document.getElementById('rangeLabel').style.display = 'block';
     document.getElementById('eventFormPopup').style.background = 'rgba(0, 0, 0, 0.5)';
     document.getElementById('popupinsevent').style.background = '#fefefe';
-    document.getElementById('confermaposizione').style.display = 'none';
-    document.getElementById('confermaposizione').style.background = 'transparent';
     document.getElementById('annullaposizione').style.display = 'none';
     document.getElementById('annullaposizione').style.background = 'transparent';;
     document.getElementById('scegliposizione').style.display = 'none';

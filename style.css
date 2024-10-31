@@ -110,7 +110,7 @@ h1 {
 
 .search-button {
     display: none;
-    z-index: 998;
+    z-index: 999;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
