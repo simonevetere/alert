@@ -147,10 +147,7 @@ function getEvents() {
 
                     var circleColor;
                     switch (category) {
-                      case "evento_pubblico":
-                        circleColor = 'blue';
-                        break;
-                      case "festa_privata":
+                      case "radio":
                         circleColor = 'green';
                         break;
                       case "allerta":

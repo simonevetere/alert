@@ -27,6 +27,9 @@
     <!-- Event List -->
     <div id="eventList"></div>
 
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+
+    <dotlottie-player onclick="window.location = 'https://terribile.space'" src="https://lottie.host/9ee46b02-06d9-4f3d-b58d-894706d76640/Ug2gQBGp1U.json" background="transparent" speed="1" style="position: fixed;z-index: 9999;width: 64px; height: 64px; right: 0; top: 0;" loop autoplay></dotlottie-player>
     <!-- Popup form for adding events -->
     <div id="eventFormPopup" style="z-index: 998;" class="popup">
         <div id="popupinsevent" class="popup-content">
@@ -39,12 +42,11 @@
                 <input type="date" onclick="checkcoodinate()" id="eventEnd" placeholder="Fine Evento" required>
                 categoria
                 <select onclick="checkcoodinate()" id="eventCategory">
-                  <option value="evento_pubblico">Evento Pubblico</option>
-                  <option value="festa_privata">Festa Privata</option>
+                  <option value="radio">radio</option>
                   <option value="allerta">Allerta</option>
                 </select>
-                <input type="range" onclick="checkcoodinate()" oninput="updateRange()" id="myRange" min="0" max="5" step="0.1"><br>
-                <label for="myRange" onclick="checkcoodinate()" id="rangeLabel">range : 2.5 km</label><br>
+                <input type="range" onclick="checkcoodinate()" oninput="updateRange()" id="myRange" min="0" max="10" step="1"><br>
+                <label for="myRange" onclick="checkcoodinate()" id="rangeLabel">range : 5 km</label><br>
                 <input type="text" id="eventCoordinates" onclick="showmap()" placeholder="Coordinate (lat, lng)" required>
                 <button id="salva" onclick="addEvent()" type="submit">Save</button>
                 <button style="display: none;" id="confermaposizione" onclick="resetcss()" type="submit">conferma</button> <br>
@@ -64,8 +66,7 @@
                 categoria
                 <select id="filterCategory">
                   <option value=""></option>
-                  <option value="evento_pubblico">Evento Pubblico</option>
-                  <option value="festa_privata">Festa Privata</option>
+                  <option value="radio">radio</option>
                   <option value="allerta">Allerta</option>
                 </select>
                 <input type="text" id="filterName" placeholder="Nome Evento">
